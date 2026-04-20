@@ -13,7 +13,7 @@ export default function About() {
           <div className="absolute bottom-0 left-0 w-full h-[300px] bg-gradient-to-t from-background via-transparent to-transparent z-20" />
           <img
             src="/images/about-bg.jpg"
-            alt="Nativos 3D - Impressao 3D"
+            alt="Nativos 3D - Impressão 3D"
             className="w-full h-full object-cover object-center"
             onError={(e) => {
               (e.target as HTMLImageElement).style.display = "none";
@@ -30,7 +30,7 @@ export default function About() {
             className="max-w-4xl"
           >
             <p className="font-condensed text-primary text-sm font-bold tracking-[0.4em] uppercase mb-6 border border-primary/30 inline-block px-4 py-1">
-              Nossa Historia
+              Nossa História
             </p>
             <h1 className="font-display text-6xl md:text-8xl lg:text-[100px] leading-[0.85] tracking-tight uppercase text-white mb-8">
               CRIADO CAMADA
@@ -38,7 +38,7 @@ export default function About() {
               <span className="text-primary">POR CAMADA</span>
             </h1>
             <p className="font-sans text-xl text-gray-300 leading-relaxed max-w-2xl">
-              Nascemos da paixao pela impressao 3D e da crenca de que objetos bem projetados transformam o cotidiano.
+              Nascemos da paixão pela impressão 3D e da convicção de que objetos bem projetados transformam o cotidiano.
             </p>
           </motion.div>
         </div>
@@ -55,17 +55,17 @@ export default function About() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="font-display text-5xl md:text-6xl tracking-wider uppercase text-white mb-8">
-                COMO <span className="text-primary">TUDO COMECOU</span>
+                COMO <span className="text-primary">TUDO COMEÇOU</span>
               </h2>
               <div className="space-y-6 font-sans text-lg text-gray-400 leading-relaxed">
                 <p>
                   A Nativos 3D nasceu de uma garagem, de uma impressora e de uma ideia simples: criar objetos que as pessoas realmente queiram ter em suas casas, mesas e vidas.
                 </p>
                 <p>
-                  Desde o primeiro vaso geometrico impresso ate as colecoes de figuras articuladas, cada peca carrega horas de projeto, testes e aperfeicoamento. A impressao 3D e nossa linguagem — precisao e arte em um so lugar.
+                  Desde o primeiro vaso geométrico impresso até as coleções de figuras articuladas, cada peça carrega horas de projeto, testes e aperfeiçoamento. A impressão 3D é nossa linguagem — precisão e arte em um só lugar.
                 </p>
                 <p>
-                  Hoje, com clientes em todo o Brasil, seguimos com o mesmo proposito: democratizar objetos bonitos, funcionais e unicos que antes so existiam em renders digitais.
+                  Hoje, com clientes em todo o Brasil, seguimos com o mesmo propósito: democratizar objetos bonitos, funcionais e únicos que antes só existiam em renders digitais.
                 </p>
               </div>
             </motion.div>
@@ -80,7 +80,7 @@ export default function About() {
               <div className="aspect-square bg-card border border-white/10 relative overflow-hidden flex items-center justify-center">
                 <img
                   src="/images/about-workshop.jpg"
-                  alt="Nossa oficina de impressao 3D"
+                  alt="Nossa oficina de impressão 3D"
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     (e.target as HTMLImageElement).style.display = "none";
@@ -131,13 +131,13 @@ export default function About() {
               </h2>
               <div className="space-y-6 font-sans text-lg text-gray-400 leading-relaxed">
                 <p>
-                  Nao fazemos produtos em massa. Cada peca e planejada, testada e ajustada ate chegar ao nivel de qualidade que nossos clientes esperam.
+                  Não fazemos produtos em massa. Cada peça é planejada, testada e ajustada até chegar ao nível de qualidade que nossos clientes esperam.
                 </p>
                 <p>
-                  Usamos filamentos premium, maquinas calibradas e muito cuidado no pos-processamento. O resultado e um produto que voce toca e sente a diferenca.
+                  Usamos filamentos premium, máquinas calibradas e muito cuidado no pós-processamento. O resultado é um produto que você toca e sente a diferença.
                 </p>
                 <p>
-                  Nosso catalogo cresce com base no que nossos clientes pedem. Se voce tem uma ideia, nos ouvimos — e muitas vezes viramos produtos que todo mundo quer.
+                  Nosso catálogo cresce com base no que nossos clientes pedem. Se você tem uma ideia, nos ouvimos — e muitas vezes viramos produtos que todo mundo quer.
                 </p>
               </div>
             </motion.div>
@@ -161,23 +161,23 @@ export default function About() {
             {[
               {
                 icon: <Layers className="w-8 h-8" />,
-                title: "Precisao",
-                desc: "Impressao com tolerancia de 0.1mm. Cada camada importa, cada detalhe e intencional.",
+                title: "Precisão",
+                desc: "Impressão com tolerância de 0.1mm. Cada camada importa, cada detalhe é intencional.",
               },
               {
                 icon: <Cpu className="w-8 h-8" />,
-                title: "Inovacao",
-                desc: "Projetos proprios criados com softwares de ponta. Design funcional e estetico ao mesmo tempo.",
+                title: "Inovação",
+                desc: "Projetos próprios criados com softwares de ponta. Design funcional e estético ao mesmo tempo.",
               },
               {
                 icon: <Heart className="w-8 h-8" />,
                 title: "Cuidado",
-                desc: "Embalagem individual, inspecao manual antes do envio. Seu produto chega como deveria.",
+                desc: "Embalagem individual, inspeção manual antes do envio. Seu produto chega como deveria.",
               },
               {
                 icon: <Leaf className="w-8 h-8" />,
                 title: "Sustentabilidade",
-                desc: "PLA biodegradavel como material principal. Producao sob demanda sem desperdicio.",
+                desc: "PLA biodegradável como material principal. Produção sob demanda, sem desperdício.",
               },
             ].map((value, i) => (
               <motion.div
@@ -233,7 +233,7 @@ export default function About() {
             className="inline-flex items-center gap-3 px-12 py-6 bg-primary text-primary-foreground font-display text-2xl tracking-widest uppercase hover:bg-orange-500 transition-all duration-300 hover:scale-105"
             data-testid="about-cta"
           >
-            VER CATALOGO
+            VER CATÁLOGO
           </Link>
         </div>
       </section>

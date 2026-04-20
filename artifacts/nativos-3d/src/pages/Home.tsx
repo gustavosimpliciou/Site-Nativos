@@ -1,8 +1,9 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, Zap, Package, Shield, Star } from "lucide-react";
 import { products, categoryLabels } from "@/lib/data";
 import CategoryCarousel from "@/components/CategoryCarousel";
+import { useState, useEffect } from "react";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -14,8 +15,25 @@ const staggerContainer = {
   visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
 };
 
+const heroTaglines = [
+  "Decoração, utilidade e coleções de alto padrão.",
+  "Cada peça conta uma história.",
+  "Impresso no Brasil. Sentido em cada detalhe.",
+  "Arte que você toca. Design que fica.",
+  "Do projeto à sua mesa — camada por camada.",
+  "Objetos únicos para espaços únicos.",
+];
+
 export default function Home() {
   const featuredProducts = products.slice(0, 12);
+  const [taglineIndex, setTaglineIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTaglineIndex((prev) => (prev + 1) % heroTaglines.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="w-full">
@@ -25,7 +43,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-background z-10" />
           <img
             src="/images/hero-bg.jpg"
-            alt="Nativos 3D - Impressao 3D Premium"
+            alt="Nativos 3D - Impressão 3D Premium"
             className="w-full h-full object-cover object-center"
             onError={(e) => {
               (e.target as HTMLImageElement).style.display = "none";
@@ -34,7 +52,7 @@ export default function Home() {
           <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#0D0D0D] via-[#1a0a00] to-[#0D0D0D]" />
         </div>
 
-        <div className="container relative z-30 px-4 md:px-6 flex flex-col items-center text-center pt-24 md:pt-20">
+        <div className="container relative z-30 px-4 md:px-6 flex flex-col items-center text-center pt-14 md:pt-20">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -56,15 +74,26 @@ export default function Home() {
               <br />
               <span className="text-primary">TRANSFORMAM</span>
               <br />
-              ESPACOS
+              ESPAÇOS
             </motion.h1>
 
-            <motion.p
+            <motion.div
               variants={fadeInUp}
-              className="font-condensed text-xl md:text-2xl text-gray-300 tracking-widest max-w-2xl mx-auto mb-12 uppercase"
+              className="h-10 md:h-12 flex items-center justify-center max-w-2xl mx-auto mb-12 overflow-hidden"
             >
-              Decoracao, utilidade e colecoes feitas camada por camada com precisao milimetrica.
-            </motion.p>
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={taglineIndex}
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -18 }}
+                  transition={{ duration: 0.45, ease: "easeInOut" }}
+                  className="font-condensed text-xl md:text-2xl text-gray-300 tracking-widest uppercase text-center"
+                >
+                  {heroTaglines[taglineIndex]}
+                </motion.p>
+              </AnimatePresence>
+            </motion.div>
 
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center lg:mb-16">
               <Link
@@ -72,13 +101,13 @@ export default function Home() {
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-display text-lg tracking-widest uppercase rounded-xl hover:bg-orange-600 transition-all duration-300 hover:scale-105 active:scale-95"
                 data-testid="hero-cta-button"
               >
-                VER CATALOGO <ArrowRight className="w-5 h-5" />
+                VER CATÁLOGO <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 href="/sobre"
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-white/20 text-white font-display text-lg tracking-widest uppercase rounded-xl hover:border-primary hover:text-primary transition-all duration-300"
               >
-                NOSSA HISTORIA
+                NOSSA HISTÓRIA
               </Link>
             </motion.div>
           </motion.div>
@@ -100,9 +129,9 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
             {[
               { value: "+500", label: "Produtos Entregues" },
-              { value: "100%", label: "Impressao Nacional" },
-              { value: "5★", label: "Avaliacao Media" },
-              { value: "30 dias", label: "Garantia de Satisfacao" },
+              { value: "100%", label: "Impressão Nacional" },
+              { value: "5★", label: "Avaliação Média" },
+              { value: "30 dias", label: "Garantia de Satisfação" },
             ].map((stat, i) => (
               <motion.div
                 key={i}
@@ -133,7 +162,7 @@ export default function Home() {
               NOSSAS <span className="text-primary">CATEGORIAS</span>
             </h2>
             <p className="font-sans text-muted-foreground text-lg max-w-xl mx-auto">
-              Do decorativo ao funcional, temos a peca certa para cada necessidade.
+              Do decorativo ao funcional — cada peça projetada para surpreender.
             </p>
           </motion.div>
 
@@ -155,14 +184,14 @@ export default function Home() {
                 MAIS <span className="text-primary">VENDIDOS</span>
               </h2>
               <p className="font-condensed text-xl text-muted-foreground tracking-widest uppercase">
-                As pecas favoritas dos nossos clientes.
+                As peças favoritas dos nossos clientes.
               </p>
             </div>
             <Link
               href="/loja"
               className="font-condensed text-lg tracking-widest uppercase text-white border-b-2 border-primary pb-1 hover:text-primary transition-colors whitespace-nowrap"
             >
-              Ver Catalogo Completo →
+              Ver Catálogo Completo →
             </Link>
           </motion.div>
 
@@ -240,10 +269,10 @@ export default function Home() {
             className="text-center mb-20"
           >
             <h2 className="font-display text-5xl md:text-7xl tracking-wider uppercase text-white mb-6">
-              FEITO COM <span className="text-primary">PRECISAO</span>
+              FEITO COM <span className="text-primary">PRECISÃO</span>
             </h2>
             <p className="font-sans text-lg text-muted-foreground max-w-2xl mx-auto">
-              Cada produto Nativos 3D e impresso com filamentos de alta qualidade, camada por camada, para garantir resistencia, detalhamento e beleza.
+              Cada produto Nativos 3D é impresso com filamentos premium, camada a camada, garantindo resistência estrutural, detalhamento excepcional e acabamento de alto nível.
             </p>
           </motion.div>
 
@@ -251,18 +280,18 @@ export default function Home() {
             {[
               {
                 icon: <Zap className="w-8 h-8" />,
-                title: "Alta Precisao",
-                desc: "Impressao com resolucao de 0.1mm para maximos detalhes e acabamento impecavel.",
+                title: "Alta Precisão",
+                desc: "Impressão com resolução de 0.1mm para máximos detalhes e acabamento impecável.",
               },
               {
                 icon: <Package className="w-8 h-8" />,
                 title: "Embalagem Segura",
-                desc: "Produtos embalados individualmente com protecao especial para chegar intacto.",
+                desc: "Produtos embalados individualmente com proteção reforçada para chegarem perfeitos ao seu destino.",
               },
               {
                 icon: <Shield className="w-8 h-8" />,
                 title: "Garantia Total",
-                desc: "30 dias de garantia de satisfacao. Se nao gostar, resolvemos.",
+                desc: "30 dias de garantia de satisfação. Se não estiver satisfeito, resolvemos — sem burocracia.",
               },
               {
                 icon: <Star className="w-8 h-8" />,
@@ -314,7 +343,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="font-display text-5xl md:text-7xl leading-tight tracking-wider uppercase text-black mb-8"
           >
-            SEU ESPACO MERECE<br />O MELHOR DO 3D
+            SEU ESPAÇO MERECE<br />O MELHOR DO 3D
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -327,7 +356,7 @@ export default function Home() {
               className="inline-flex items-center gap-3 px-12 py-6 bg-black text-white font-display text-2xl tracking-widest uppercase hover:bg-[#0D0D0D] transition-colors duration-300"
               data-testid="cta-bottom"
             >
-              EXPLORAR CATALOGO <ArrowRight className="w-6 h-6" />
+              EXPLORAR CATÁLOGO <ArrowRight className="w-6 h-6" />
             </Link>
           </motion.div>
         </div>

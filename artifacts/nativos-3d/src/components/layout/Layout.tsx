@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { SiInstagram, SiTiktok, SiWhatsapp, SiFacebook, SiYoutube } from "react-icons/si";
 
 const navLinks = [
-  { href: "/loja", label: "CATALOGO" },
+  { href: "/loja", label: "CATÁLOGO" },
   { href: "/sobre", label: "SOBRE" },
   { href: "/contato", label: "CONTATO" },
 ];
@@ -101,7 +101,7 @@ export function Navbar() {
               className="hidden md:flex items-center gap-2 px-5 py-2 bg-primary text-primary-foreground font-condensed text-base tracking-widest uppercase hover:bg-orange-500 transition-colors duration-200"
               data-testid="nav-cta"
             >
-              VER CATALOGO
+              VER CATÁLOGO
             </Link>
 
             <button
@@ -125,7 +125,7 @@ export function Navbar() {
           className="fixed inset-0 z-40 bg-background/98 backdrop-blur-xl pt-24 px-6 flex flex-col md:hidden"
         >
           <nav className="flex flex-col gap-4 items-center mt-8">
-            {[{ href: "/", label: "INICIO" }, ...navLinks].map((link, i) => (
+            {[{ href: "/", label: "INÍCIO" }, ...navLinks].map((link, i) => (
               <motion.div
                 key={link.href}
                 initial={{ opacity: 0, y: 20 }}
@@ -150,7 +150,7 @@ export function Navbar() {
               href="/loja"
               className="w-full max-w-xs py-4 bg-primary text-primary-foreground font-display text-2xl tracking-widest uppercase text-center"
             >
-              VER CATALOGO
+              VER CATÁLOGO
             </Link>
 
             <div className="flex gap-5 mt-2">
@@ -171,7 +171,7 @@ export function Navbar() {
 
           <div className="mt-auto pb-12 text-center">
             <p className="font-condensed text-muted-foreground tracking-widest text-sm uppercase">
-              Impressao 3D de Alta Precisao — Feito no Brasil
+              Impressão 3D de Alta Precisão — Feito no Brasil
             </p>
           </div>
         </motion.div>
@@ -197,7 +197,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="font-sans text-muted-foreground max-w-sm leading-relaxed mb-6">
-              Objetos impressos em 3D com alta precisao para decoracao, utilidade e colecao. Feito no Brasil, entregue para todo o pais.
+              Objetos impressos em 3D com alta precisão para decoração, utilidade e coleção. Feito no Brasil, entregue para todo o país.
             </p>
             {/* Social icons */}
             <div className="flex gap-3">
@@ -219,14 +219,14 @@ export function Footer() {
 
           {/* Navigation */}
           <div>
-            <h3 className="font-condensed text-xl tracking-widest uppercase mb-6 text-white">Catalogo</h3>
+            <h3 className="font-condensed text-xl tracking-widest uppercase mb-6 text-white">Catálogo</h3>
             <ul className="flex flex-col gap-3">
               {[
-                { href: "/loja?categoria=decoracao", label: "Decoracao" },
-                { href: "/loja?categoria=uteis", label: "Uteis" },
+                { href: "/loja?categoria=decoracao", label: "Decoração" },
+                { href: "/loja?categoria=uteis", label: "Úteis" },
                 { href: "/loja?categoria=casa", label: "Para Casa" },
                 { href: "/loja?categoria=facilitadores", label: "Facilitadores" },
-                { href: "/loja?categoria=colecionaveis", label: "Colecionaveis" },
+                { href: "/loja?categoria=colecionaveis", label: "Colecionáveis" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="font-sans text-muted-foreground hover:text-primary transition-colors text-sm">
@@ -239,13 +239,13 @@ export function Footer() {
 
           {/* Info */}
           <div>
-            <h3 className="font-condensed text-xl tracking-widest uppercase mb-6 text-white">Informacoes</h3>
+            <h3 className="font-condensed text-xl tracking-widest uppercase mb-6 text-white">Informações</h3>
             <ul className="flex flex-col gap-3">
               <li><Link href="/sobre" className="font-sans text-muted-foreground hover:text-primary transition-colors text-sm">Sobre a Nativos 3D</Link></li>
               <li><Link href="/contato" className="font-sans text-muted-foreground hover:text-primary transition-colors text-sm">Fale Conosco</Link></li>
-              <li><a href="#" className="font-sans text-muted-foreground hover:text-primary transition-colors text-sm">Politica de Privacidade</a></li>
-              <li><a href="#" className="font-sans text-muted-foreground hover:text-primary transition-colors text-sm">Termos de Servico</a></li>
-              <li><a href="#" className="font-sans text-muted-foreground hover:text-primary transition-colors text-sm">Politica de Entrega</a></li>
+              <li><a href="#" className="font-sans text-muted-foreground hover:text-primary transition-colors text-sm">Política de Privacidade</a></li>
+              <li><a href="#" className="font-sans text-muted-foreground hover:text-primary transition-colors text-sm">Termos de Serviço</a></li>
+              <li><a href="#" className="font-sans text-muted-foreground hover:text-primary transition-colors text-sm">Política de Entrega</a></li>
             </ul>
           </div>
         </div>
@@ -256,7 +256,7 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Nativos 3D. Todos os direitos reservados.
           </p>
           <p className="font-condensed text-sm text-primary tracking-widest uppercase">
-            FEITO NO BRASIL. ENTREGUE COM PRECISAO.
+            FEITO NO BRASIL. ENTREGUE COM PRECISÃO.
           </p>
         </div>
       </div>

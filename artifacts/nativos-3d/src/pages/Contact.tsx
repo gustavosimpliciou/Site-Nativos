@@ -11,7 +11,7 @@ import { Mail, MapPin, MessageCircle } from "lucide-react";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres."),
-  email: z.string().email("Email invalido."),
+  email: z.string().email("E-mail inválido."),
   subject: z.string().min(3, "Assunto deve ter pelo menos 3 caracteres."),
   message: z.string().min(10, "A mensagem precisa ter pelo menos 10 caracteres."),
 });
@@ -42,7 +42,7 @@ export default function Contact() {
   function onSubmit(_data: ContactFormValues) {
     toast({
       title: "Mensagem enviada!",
-      description: "Recebemos seu contato e retornaremos em ate 24 horas.",
+      description: "Recebemos seu contato e retornaremos em até 24 horas.",
       className: "bg-card border-primary text-white",
     });
     form.reset();
@@ -71,7 +71,7 @@ export default function Contact() {
               VAMOS <br /><span className="text-primary">CONVERSAR</span>
             </h1>
             <p className="font-sans text-xl text-gray-400 leading-relaxed mb-12 max-w-md">
-              Duvidas sobre produtos, prazos, personalizacoes ou parceria? Estamos aqui para ajudar.
+              Dúvidas sobre produtos, prazos, personalizações ou parceria? Estamos aqui para ajudar.
             </p>
 
             <div className="space-y-8 mb-12">
@@ -80,7 +80,7 @@ export default function Contact() {
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-condensed text-xl tracking-widest text-primary mb-1 uppercase">Email</h3>
+                  <h3 className="font-condensed text-xl tracking-widest text-primary mb-1 uppercase">E-mail</h3>
                   <a href="mailto:contato@nativos3d.com.br" className="font-sans text-gray-300 hover:text-primary transition-colors">
                     contato@nativos3d.com.br
                   </a>
@@ -96,7 +96,7 @@ export default function Contact() {
                   <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" className="font-sans text-gray-300 hover:text-primary transition-colors">
                     (11) 9 9999-9999
                   </a>
-                  <p className="font-sans text-sm text-muted-foreground mt-1">Seg-Sex, 9h as 18h</p>
+                  <p className="font-sans text-sm text-muted-foreground mt-1">Seg-Sex, 9h às 18h</p>
                 </div>
               </div>
 
@@ -105,8 +105,8 @@ export default function Contact() {
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-condensed text-xl tracking-widest text-primary mb-1 uppercase">Regiao</h3>
-                  <p className="font-sans text-gray-300">Brasil — Enviamos para todo o territorio nacional</p>
+                  <h3 className="font-condensed text-xl tracking-widest text-primary mb-1 uppercase">Região</h3>
+                  <p className="font-sans text-gray-300">Brasil — Enviamos para todo o território nacional</p>
                 </div>
               </div>
             </div>
@@ -169,7 +169,7 @@ export default function Contact() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="font-condensed text-lg tracking-widest uppercase text-white">Email</FormLabel>
+                        <FormLabel className="font-condensed text-lg tracking-widest uppercase text-white">E-mail</FormLabel>
                         <FormControl>
                           <Input
                             placeholder="seu@email.com"
