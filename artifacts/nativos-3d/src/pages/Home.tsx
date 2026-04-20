@@ -15,7 +15,7 @@ const staggerContainer = {
 };
 
 export default function Home() {
-  const featuredProducts = products.slice(0, 10);
+  const featuredProducts = products.slice(0, 12);
 
   return (
     <div className="w-full">
@@ -34,7 +34,7 @@ export default function Home() {
           <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#0D0D0D] via-[#1a0a00] to-[#0D0D0D]" />
         </div>
 
-        <div className="container relative z-30 px-4 md:px-6 flex flex-col items-center text-center">
+        <div className="container relative z-30 px-4 md:px-6 flex flex-col items-center text-center pt-24 md:pt-20">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -66,7 +66,7 @@ export default function Home() {
               Decoracao, utilidade e colecoes feitas camada por camada com precisao milimetrica.
             </motion.p>
 
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center lg:mb-16">
               <Link
                 href="/loja"
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-display text-lg tracking-widest uppercase rounded-xl hover:bg-orange-600 transition-all duration-300 hover:scale-105 active:scale-95"
@@ -209,6 +209,21 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="flex justify-center mt-14"
+          >
+            <Link
+              href="/loja"
+              className="inline-flex items-center gap-3 px-12 py-4 border-2 border-primary text-primary font-display text-lg tracking-widest uppercase hover:bg-primary hover:text-black transition-all duration-300 hover:scale-105 active:scale-95"
+            >
+              VER TODOS <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
         </div>
       </section>
 
@@ -276,11 +291,20 @@ export default function Home() {
 
       {/* Manifesto CTA */}
       <section className="py-32 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 pointer-events-none flex flex-wrap gap-4 items-center justify-center overflow-hidden">
-          {Array(15).fill(0).map((_, i) => (
-            <span key={i} className="font-display text-8xl text-black whitespace-nowrap rotate-[-8deg] blur-[1px]">
-              NATIVOS 3D //
-            </span>
+        <div className="absolute inset-0 pointer-events-none overflow-hidden flex flex-col justify-center gap-6 opacity-[0.08]">
+          {[0, 1].map((row) => (
+            <motion.div
+              key={row}
+              className="flex gap-8 whitespace-nowrap"
+              animate={{ x: row % 2 === 0 ? ["0%", "-50%"] : ["-50%", "0%"] }}
+              transition={{ repeat: Infinity, duration: 18, ease: "linear" }}
+            >
+              {Array(6).fill(0).map((_, i) => (
+                <span key={i} className="font-display text-7xl md:text-9xl text-black uppercase tracking-widest shrink-0">
+                  NATIVOS 3D // NATIVOS 3D //&nbsp;
+                </span>
+              ))}
+            </motion.div>
           ))}
         </div>
         <div className="container px-4 md:px-6 relative z-10 text-center">
