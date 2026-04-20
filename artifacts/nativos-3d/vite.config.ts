@@ -12,19 +12,21 @@ const basePath = process.env.BASE_PATH ?? "/";
 
 const plugins = [react(), tailwindcss()];
 
-if (!isBuild) {
-  const { default: runtimeErrorOverlay } = await import(
-    "@replit/vite-plugin-runtime-error-modal"
-  );
-  plugins.push(runtimeErrorOverlay());
+if (!isBuild && process.env.REPL_ID !== undefined) {
+  try {
+    const { default: runtimeErrorOverlay } = await import(
+      "@replit/vite-plugin-runtime-error-modal"
+    );
+    plugins.push(runtimeErrorOverlay());
 
-  if (process.env.NODE_ENV !== "production" && process.env.REPL_ID !== undefined) {
     const { cartographer } = await import("@replit/vite-plugin-cartographer");
     plugins.push(
       cartographer({ root: path.resolve(import.meta.dirname, "..") })
     );
     const { devBanner } = await import("@replit/vite-plugin-dev-banner");
     plugins.push(devBanner());
+  } catch {
+    // Replit plugins not available outside Replit environment
   }
 }
 
@@ -34,7 +36,6 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "src"),
-      "@assets": path.resolve(import.meta.dirname, "..", "..", "attached_assets"),
     },
     dedupe: ["react", "react-dom"],
   },
@@ -42,6 +43,15 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom"],
+          motion: ["framer-motion"],
+          router: ["wouter"],
+        },
+      },
+    },
   },
   server: {
     port,
