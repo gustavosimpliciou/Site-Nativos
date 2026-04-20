@@ -1,11 +1,13 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, Zap, Package, Shield, Star } from "lucide-react";
 import { products, categoryLabels, type ProductCategory } from "@/lib/data";
+import CategoryCarousel from "@/components/CategoryCarousel";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
 };
 
 const staggerContainer = {
@@ -13,16 +15,12 @@ const staggerContainer = {
   visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
 };
 
-const categories: { key: ProductCategory; label: string; icon: string }[] = [
-  { key: "decoracao", label: "Decoracao", icon: "◈" },
-  { key: "uteis", label: "Uteis", icon: "◉" },
-  { key: "casa", label: "Para Casa", icon: "◇" },
-  { key: "facilitadores", label: "Facilitadores", icon: "◆" },
-  { key: "colecionaveis", label: "Colecionaveis", icon: "◎" },
-];
-
 export default function Home() {
-  const featuredProducts = products.filter((p) => p.badge).slice(0, 4);
+  const [selectedCategory, setSelectedCategory] = useState<ProductCategory | null>(null);
+
+  const featuredProducts = selectedCategory
+    ? products.filter((p) => p.category === selectedCategory).slice(0, 10)
+    : products.slice(0, 10);
 
   return (
     <div className="w-full">
@@ -52,7 +50,7 @@ export default function Home() {
               variants={fadeInUp}
               className="font-condensed text-primary text-sm md:text-base tracking-[0.4em] uppercase mb-6 border border-primary/30 inline-block px-4 py-1"
             >
-              Impressao 3D de Alta Precisao
+              Produtos de Alta Qualidade
             </motion.p>
 
             <motion.h1
@@ -127,7 +125,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Categories */}
+      {/* Categories Carousel */}
       <section className="py-24 bg-background">
         <div className="container px-4 md:px-6">
           <motion.div
@@ -144,26 +142,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {categories.map((cat, i) => (
-              <motion.div
-                key={cat.key}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-              >
-                <Link
-                  href={`/loja?categoria=${cat.key}`}
-                  className="group flex flex-col items-center justify-center gap-4 p-8 border border-white/10 bg-card hover:border-primary/60 hover:bg-primary/5 transition-all duration-300"
-                  data-testid={`category-${cat.key}`}
-                >
-                  <span className="text-4xl text-primary group-hover:scale-125 transition-transform duration-300">{cat.icon}</span>
-                  <span className="font-condensed text-xl tracking-widest uppercase text-white group-hover:text-primary transition-colors">{cat.label}</span>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+          <CategoryCarousel onCategoryChange={setSelectedCategory} />
         </div>
       </section>
 
@@ -181,7 +160,9 @@ export default function Home() {
                 MAIS <span className="text-primary">VENDIDOS</span>
               </h2>
               <p className="font-condensed text-xl text-muted-foreground tracking-widest uppercase">
-                As pecas favoritas dos nossos clientes.
+                {selectedCategory
+                  ? `Categoria: ${categoryLabels[selectedCategory]}`
+                  : "As pecas favoritas dos nossos clientes."}
               </p>
             </div>
             <Link
@@ -192,17 +173,17 @@ export default function Home() {
             </Link>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 xl:gap-8">
             {featuredProducts.map((product, i) => (
               <motion.div
                 key={product.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 0.5, delay: i * 0.07 }}
               >
                 <Link href={`/produto/${product.id}`} className="group block" data-testid={`featured-product-${product.id}`}>
-                  <div className="relative aspect-square mb-5 overflow-hidden bg-card border border-white/5 group-hover:border-primary/40 transition-all duration-300">
+                  <div className="relative aspect-square mb-4 overflow-hidden bg-card border border-white/5 group-hover:border-primary/40 transition-all duration-300">
                     {product.badge && (
                       <span className="absolute top-3 left-3 z-10 bg-primary text-white font-condensed text-xs tracking-widest uppercase px-3 py-1">
                         {product.badge}
@@ -224,12 +205,12 @@ export default function Home() {
                   </div>
                   <div className="flex justify-between items-start">
                     <div>
-                      <h3 className="font-condensed text-xl text-white tracking-wider uppercase mb-1 group-hover:text-primary transition-colors">
+                      <h3 className="font-condensed text-base md:text-xl text-white tracking-wider uppercase mb-1 group-hover:text-primary transition-colors">
                         {product.name}
                       </h3>
-                      <p className="font-sans text-sm text-muted-foreground uppercase">{categoryLabels[product.category]}</p>
+                      <p className="font-sans text-xs md:text-sm text-muted-foreground uppercase">{categoryLabels[product.category]}</p>
                     </div>
-                    <span className="font-sans font-bold text-primary text-sm">{product.formattedPrice}</span>
+                    <span className="font-sans font-bold text-primary text-sm whitespace-nowrap ml-2">{product.formattedPrice}</span>
                   </div>
                 </Link>
               </motion.div>

@@ -107,7 +107,7 @@ function CategoryCarousel({
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 className={`
                   flex-none flex flex-col items-center justify-center gap-1
-                  w-[42vw] sm:w-44 px-4 py-4 sm:py-5
+                  w-[42vw] sm:w-44 px-4 py-3.5 sm:py-[18px]
                   border font-condensed tracking-widest uppercase
                   transition-colors duration-300 cursor-pointer select-none
                   ${
