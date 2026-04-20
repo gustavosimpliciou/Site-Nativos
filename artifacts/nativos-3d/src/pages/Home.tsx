@@ -1,8 +1,7 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, Zap, Package, Shield, Star } from "lucide-react";
-import { products, categoryLabels, type ProductCategory } from "@/lib/data";
+import { products, categoryLabels } from "@/lib/data";
 import CategoryCarousel from "@/components/CategoryCarousel";
 
 const fadeInUp = {
@@ -16,11 +15,7 @@ const staggerContainer = {
 };
 
 export default function Home() {
-  const [selectedCategory, setSelectedCategory] = useState<ProductCategory | null>(null);
-
-  const featuredProducts = selectedCategory
-    ? products.filter((p) => p.category === selectedCategory).slice(0, 10)
-    : products.slice(0, 10);
+  const featuredProducts = products.slice(0, 10);
 
   return (
     <div className="w-full">
@@ -74,14 +69,14 @@ export default function Home() {
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/loja"
-                className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-primary text-primary-foreground font-display text-2xl tracking-widest uppercase hover:bg-orange-600 transition-all duration-300 hover:scale-105 active:scale-95"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-display text-lg tracking-widest uppercase rounded-xl hover:bg-orange-600 transition-all duration-300 hover:scale-105 active:scale-95"
                 data-testid="hero-cta-button"
               >
-                VER CATALOGO <ArrowRight className="w-6 h-6" />
+                VER CATALOGO <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 href="/sobre"
-                className="inline-flex items-center justify-center gap-3 px-10 py-5 border border-white/20 text-white font-display text-2xl tracking-widest uppercase hover:border-primary hover:text-primary transition-all duration-300"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-white/20 text-white font-display text-lg tracking-widest uppercase rounded-xl hover:border-primary hover:text-primary transition-all duration-300"
               >
                 NOSSA HISTORIA
               </Link>
@@ -142,7 +137,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <CategoryCarousel onCategoryChange={setSelectedCategory} />
+          <CategoryCarousel />
         </div>
       </section>
 
@@ -160,9 +155,7 @@ export default function Home() {
                 MAIS <span className="text-primary">VENDIDOS</span>
               </h2>
               <p className="font-condensed text-xl text-muted-foreground tracking-widest uppercase">
-                {selectedCategory
-                  ? `Categoria: ${categoryLabels[selectedCategory]}`
-                  : "As pecas favoritas dos nossos clientes."}
+                As pecas favoritas dos nossos clientes.
               </p>
             </div>
             <Link
@@ -173,7 +166,7 @@ export default function Home() {
             </Link>
           </motion.div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 xl:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 xl:gap-8">
             {featuredProducts.map((product, i) => (
               <motion.div
                 key={product.id}
