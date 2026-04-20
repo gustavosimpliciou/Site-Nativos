@@ -4,6 +4,15 @@
 
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
 
+## Vercel Deployment
+
+The `vercel.json` at the root configures Vercel to build only the `nativos-3d` frontend artifact:
+- **Build command**: `pnpm --filter @workspace/nativos-3d run build`
+- **Output directory**: `artifacts/nativos-3d/dist/public`
+- **SPA routing**: All routes rewrite to `index.html` for wouter client-side routing
+
+When deploying to Vercel, just import the GitHub repo — the `vercel.json` handles everything automatically.
+
 ## Stack
 
 - **Monorepo tool**: pnpm workspaces

@@ -1,0 +1,12 @@
+{
+  "buildCommand": "pnpm --filter @workspace/nativos-3d run build",
+  "outputDirectory": "artifacts/nativos-3d/dist/public",
+  "installCommand": "pnpm install",
+  "env": {
+    "BASE_PATH": "/",
+    "NODE_ENV": "production"
+  },
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
