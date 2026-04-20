@@ -1,0 +1,79 @@
+uploads = []
+
+[[generated]]
+id = "_CBoEST3pR13BuZ7ks_iz"
+uri = "file://artifacts/nativos-3d/public/images/products/camiseta-glitch.png"
+type = "image"
+title = "Camiseta Glitch Drop"
+
+[[generated]]
+id = "cClWyPEFbdWk9ZNESng_c"
+uri = "file://artifacts/nativos-3d/public/images/products/hoodie-urbano.png"
+type = "image"
+title = "Hoodie Urbano 3D"
+
+[[generated]]
+id = "V_fN-jb6K0b1zIcYXkYA4"
+uri = "file://artifacts/nativos-3d/public/images/products/calca-cargo.png"
+type = "image"
+title = "Calça Cargo Tech"
+
+[[generated]]
+id = "N4Lij5q9T2bW0mKWyfJCa"
+uri = "file://artifacts/nativos-3d/public/images/products/bone-signal.png"
+type = "image"
+title = "Boné Signal"
+
+[[generated]]
+id = "ommEHlvcYV50m-135cTYa"
+uri = "file://artifacts/nativos-3d/public/images/products/camiseta-codigo.png"
+type = "image"
+title = "Camiseta Código Nativo"
+
+[[generated]]
+id = "NBBlZd7gS5S4tAVBlvGQT"
+uri = "file://artifacts/nativos-3d/public/images/products/hoodie-sombra.png"
+type = "image"
+title = "Hoodie Sombra Digital"
+
+[[generated]]
+id = "KHEqajCa7yVrlXeDCAFB6"
+uri = "file://artifacts/nativos-3d/public/images/products/mochila-grid.png"
+type = "image"
+title = "Mochila Grid"
+
+[[generated]]
+id = "ZsCGohmc_QHF1e20ZYYo7"
+uri = "file://artifacts/nativos-3d/public/images/products/jaqueta-matrix.png"
+type = "image"
+title = "Jaqueta Matrix"
+
+[[generated]]
+id = "uYd1gnPzXXURhd7ZB3VOF"
+uri = "file://artifacts/nativos-3d/public/images/products/camiseta-pixel.png"
+type = "image"
+title = "Camiseta Pixel Break"
+
+[[generated]]
+id = "yaseB2GmJvAZ9nH4S1OjU"
+uri = "file://artifacts/nativos-3d/public/images/products/calca-wide.png"
+type = "image"
+title = "Calça Wide Glitch"
+
+[[outputs]]
+id = "RKCWTAxB2mKwyAX3JxMMu"
+uri = "file://artifacts/nativos-3d/public/images/hero-bg.png"
+type = "image"
+title = "dark moody urban alley at night with neon lights"
+
+[[outputs]]
+id = "EQBMNvazuOqfCQS5ce0Uq"
+uri = "file://artifacts/nativos-3d/public/images/about-origin.png"
+type = "image"
+title = "dark urban landscape with glowing neon sign night photography"
+
+[[outputs]]
+id = "rVaaL8xoXkxrWvteFad2_"
+uri = "file://artifacts/nativos-3d/public/images/about-future.png"
+type = "image"
+title = "futuristic dark streetwear fashion model at night"

@@ -1,0 +1,118 @@
+Crie um site de e-commerce moderno chamado "Nativos 3D", com estética streetwear + tech e totalmente compatível com deploy na Vercel.
+
+STACK:
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- Sem frameworks obrigatórios (pode ser vanilla)
+- Estrutura otimizada para deploy estático
+
+COMPATIBILIDADE VERCEL:
+- Projeto deve funcionar como site estático
+- Usar caminhos relativos (./assets, ./pages)
+- NÃO usar backend (Node, Java, etc.)
+- NÃO usar rotas dinâmicas do servidor
+- Navegação entre páginas feita com:
+  - múltiplos arquivos HTML (index.html, loja.html, etc.)
+  OU
+  - SPA simples com JavaScript
+
+ESTRUTURA DE PASTAS:
+
+/project-root
+  index.html
+  loja.html
+  produto.html
+  sobre.html
+  contato.html
+  /css
+    style.css
+  /js
+    script.js
+  /assets
+    imagens/
+    icones/
+
+DESIGN (DIREÇÃO):
+- Estilo street + digital + urbano
+- Visual escuro com alto contraste
+- Mistura de organização com caos controlado
+
+CORES:
+- Preto profundo (#0D0D0D)
+- Cinza escuro (#1A1A1A)
+- Branco (#F5F5F5)
+- Laranja vibrante (#FF5C00)
+
+TIPOGRAFIA:
+- Títulos: fortes, bold, impactantes
+- Texto: limpo e legível
+- Hierarquia bem definida
+
+IDENTIDADE:
+- Marca com atitude
+- Linguagem direta e provocadora
+- Sensação de movimento e energia
+
+PÁGINAS:
+
+HOME:
+- Hero com frase grande:
+  "NÃO É SÓ PRODUTO. É PRESENÇA."
+- Animação de entrada (fade + scale + slide)
+- Botão CTA com hover animado
+- Sessão de produtos em destaque
+- Sessão manifesto
+
+LOJA:
+- Grid responsivo
+- Cards com hover (zoom + leve rotação + sombra)
+- Botões interativos
+
+PRODUTO:
+- Imagem grande
+- Nome forte
+- Preço destacado
+- Botão "Comprar"
+- Layout limpo porém impactante
+
+SOBRE:
+- Storytelling direto
+- Layout com blocos quebrados
+- Elementos gráficos urbanos
+
+CONTATO:
+- Formulário estilizado
+- Inputs com foco em laranja
+
+HEADER:
+- Fixo
+- Muda ao scroll
+- Navegação simples
+
+FOOTER:
+- Escuro
+- Links + frase de impacto
+
+ANIMAÇÕES:
+- Scroll reveal com Intersection Observer
+- Hover effects (scale, rotate, translate)
+- Microinterações
+- Loader inicial simples (sem dependências externas)
+
+PERFORMANCE:
+- Código leve
+- Sem bibliotecas pesadas
+- Imagens otimizadas
+- Carregamento rápido
+
+UX:
+- Mobile-first
+- Navegação intuitiva
+- Feedback visual claro
+
+IMPORTANTE PARA VERCEL:
+- Tudo deve rodar apenas abrindo index.html
+- Sem necessidade de servidor local
+- Links internos funcionando corretamente
+- Código organizado e comentado
