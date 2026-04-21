@@ -57,7 +57,7 @@ export default function Home() {
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="max-w-5xl"
+            className="max-w-5xl w-full"
           >
             <motion.p
               variants={fadeInUp}
@@ -139,10 +139,10 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="py-8 px-6 text-center"
+                className="py-5 px-3 md:py-6 md:px-4 text-center"
               >
-                <p className="font-display text-4xl text-primary mb-1">{stat.value}</p>
-                <p className="font-sans text-sm text-muted-foreground uppercase tracking-widest">{stat.label}</p>
+                <p className="font-display text-2xl md:text-3xl text-primary mb-1 leading-none">{stat.value}</p>
+                <p className="font-sans text-[10px] md:text-xs text-muted-foreground uppercase tracking-widest leading-tight">{stat.label}</p>
               </motion.div>
             ))}
           </div>
